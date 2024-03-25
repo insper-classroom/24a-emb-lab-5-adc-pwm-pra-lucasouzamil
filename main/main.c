@@ -66,7 +66,6 @@ void x_task(void *p) {
 void y_task(void *p) {
     adc_gpio_init(27);
 
-    int result;
     int values[5] = {0, 0, 0, 0, 0};
     int i = 0;
 
@@ -75,7 +74,7 @@ void y_task(void *p) {
 
     while (1) {
         adc_select_input(1);
-        result = adc_read();
+        int result = adc_read();
         values[(i++)%5] = result;
         Y.val = (values[0] + values[1] + values[2] + values[3] + values[4])/5;
         //printf("Value Y: %d\n", mean);
