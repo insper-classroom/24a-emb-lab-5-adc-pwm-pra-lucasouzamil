@@ -33,7 +33,6 @@ void write_package(adc_t data) {
 
 void uart_task(void *p) {
     adc_t data;
-    int EOP = -1;
     while (1) {
         xQueueReceive(xQueueAdc, &data, portMAX_DELAY);
         data.val = (data.val-2047)/8;
