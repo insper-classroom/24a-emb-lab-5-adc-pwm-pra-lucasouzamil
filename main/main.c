@@ -37,8 +37,8 @@ void uart_task(void *p) {
         xQueueReceive(xQueueAdc, &data, portMAX_DELAY);
         data.val = (data.val-2047)/8;
         if (data.val <= 30 && data.val >= -30) data.val = 0;
-        printf("Eixo: %d     Valor: %d\n\n", data.axis, data.val);
-        //write_package(data);
+        //printf("Eixo: %d     Valor: %d\n\n", data.axis, data.val);
+        write_package(data);
     }
 }
 
